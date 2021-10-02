@@ -8,15 +8,13 @@ ATS = config.ACCESS_TOKEN_SECRET
 
 twitter = OAuth1Session(CK, CS, AT, ATS)
 
-url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
-
-params ={'count' : 5}
-res = twitter.get(url, params = params)
+url = "https://api.twitter.com/1.1/statuses/lookup.json"
+# 1442432532989956100
+params ={'id' : "1442432532989956100"}
+res = twitter.get(url, params=params)
 
 if res.status_code == 200:
     timelines = json.loads(res.text)
-    for line in timelines:
-        print(line)
-        print('*******************************************')
+    print(json.dumps(timelines[0]['extended_entities']['media'][0]['video_info']['variants'][1]['url']))
 else:
     print("Failed: %d" % res.status_code)
