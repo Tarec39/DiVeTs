@@ -10,11 +10,14 @@ twitter = OAuth1Session(CK, CS, AT, ATS)
 
 url = "https://api.twitter.com/1.1/statuses/lookup.json"
 # 1442432532989956100
-params ={'id' : "1442432532989956100"}
+# 1384037445029617671
+params ={'id' : "1384037445029617671"}
 res = twitter.get(url, params=params)
 
 if res.status_code == 200:
     timelines = json.loads(res.text)
-    print(json.dumps(timelines[0]['extended_entities']['media'][0]['video_info']['variants'][1]['url']))
+    timelines = timelines[0]['extended_entities']['media'][0]['video_info']['variants']
+    print(timelines[len(timelines)-2]['url'])
 else:
     print("Failed: %d" % res.status_code)
+
