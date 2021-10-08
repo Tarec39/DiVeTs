@@ -9,9 +9,8 @@ ATS = config.ACCESS_TOKEN_SECRET
 twitter = OAuth1Session(CK, CS, AT, ATS)
 
 url = "https://api.twitter.com/1.1/statuses/lookup.json"
-# 1442432532989956100
-# 1384037445029617671
-params ={'id' : "1384037445029617671"}
+
+params ={'id' : "1384037445029617671"} #パラメーターに充てる
 res = twitter.get(url, params=params)
 
 if res.status_code == 200:
