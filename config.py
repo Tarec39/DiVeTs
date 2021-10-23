@@ -10,3 +10,4 @@ CONSUMER_KEY_SECRET = os.environ.get("CONSUMER_KEY_SECRET")
 ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
 ACCESS_TOKEN_SECRET = os.environ.get("ACCESS_TOKEN_SECRET")
 
+TOKEN = os.environ.get("TOKEN")
