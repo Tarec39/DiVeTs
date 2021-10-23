@@ -1,6 +1,5 @@
 import discord
 import config
-# import getDirectVideoLink
 import twitter
 
 client = discord.Client()
@@ -15,7 +14,6 @@ async def on_message(msg):
         return
 
     if 'https://twitter.com/' in msg.content:
-        await msg.channel.send("Sup")
-        twitter.nyaa(msg.content)
+        await msg.channel.send(twitter.nyaa(msg.content).extractDirectLink())
 
 client.run(config.TOKEN)
